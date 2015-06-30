@@ -1,0 +1,9 @@
+<%= render "layouts/errors", :object => @section %>
+
+<%= form_for @section do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <label> Section Number </label>
+  <%= f.number_field :section_number %>
+  <%= f.submit %>
+<% end %>

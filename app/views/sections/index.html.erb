@@ -1,0 +1,22 @@
+<h1>Table of Contents</h1>
+
+
+<h4> Pre-work: Web pages, command line, and reading</h4>
+<ul>
+  <% @sections.section1.each do |section| %>
+    <li><%= link_to section.title, section_path(section) %></li>
+  <% end %>
+</ul>
+
+
+
+<h4>Ruby pre-work: Language basics and Sinatra</h4>
+<ul>
+  <% @sections.section2.each do |section| %>
+    <li><%= link_to section.title, section_path(section) %></li>
+  <% end%>
+</ul>
+
+
+
+<p><%= link_to "Add a Section", new_section_path %></p>
