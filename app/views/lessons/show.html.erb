@@ -1,3 +1,19 @@
 <% content_for(:title, @lesson.name) %>
 
 <h1><%= @lesson.name%></h1>
+
+<% if @lesson.next %>
+  <p>
+    <%= link_to "Next Lesson", lesson_path(@lesson.next) %>
+  </p>
+<% end %>
+
+<%= if @lesson.previous %>
+  <p>
+    <%= link_to "Previous Lesson", lesson_path(@lesson.previous) %>
+  </p>
+<% end %>
+
+  <p>
+    <%= link_to "Back to Lessons", lessons_path %>
+  </p>
