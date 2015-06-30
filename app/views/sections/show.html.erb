@@ -1,7 +1,28 @@
+<% content_for(:title, @section.title) %>
+
 <%=@section.title%>
 
+  <ul>
+  <% if @section.lessons.any? %>
+    <% @section.lessons.each do |lesson| %>
+      <li>
+        <%= link_to lesson.name, section_lesson_path(@section, lesson) %> |
+        <%= link_to "Edit", edit_section_lesson_path(@section, lesson) %> |
+        <%= link_to "Delete", section_lesson_path(@section, lesson),
+                                data: {confirm: "Are you sure?",
+                                            method: "delete"} %>
+      </li>
+    <%end%>
+  </ul>
+  <% else %>
+    <p>There are no lessons yet!</p>
+  <% end %>
+
+  <p><%= link_to "Add a lesson", new_section_lesson_path(@section) %></p>
+  <p><%= link_to "Delete", section_path(@section),
+                                      :data => {:confirm => "You sure?",
+                                            :method => "delete"} %></p>
 
 <p><%= link_to "Edit", edit_section_path(@section) %></p>
-<p><%= link_to "Delete", section_path(@section),
-                                    :data => {:confirm => "You sure?",
-                                      :method => "delete"} %></p>
+
+<p><%= link_to "Return to Table of Contents", sections_path %></p>
